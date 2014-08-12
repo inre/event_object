@@ -1,4 +1,4 @@
-# Event::Object
+# EventObject
 
 EventObject - event-driven programming for ruby
 
