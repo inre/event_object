@@ -4,7 +4,7 @@ module EventObject
       define_singleton_method method, &b
     end
 
-    def var(name, init)
+    def var(name, init=nil)
       instance_variable_get("@#{name}") || instance_variable_set("@#{name}", init.new)
     end
 

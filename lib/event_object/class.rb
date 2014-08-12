@@ -9,7 +9,7 @@ module EventObject
       ev.each { |name| self.def("#{name}!") { |*a| var(name, Array).fire(*a) } }
     end
 
-    def var(name, init)
+    def var(name, init=nil)
     	key = "@#{name}"
       class_variable_defined?(key) ? class_variable_get(key) : class_variable_set(key, init.new)
     end
