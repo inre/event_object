@@ -7,7 +7,7 @@ EventObject - event-driven programming for ruby
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'event-object'
+gem 'event_object'
 ```
 
 And then execute:
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install event-object
+    $ gem install event_object
 
 ## Usage
 
