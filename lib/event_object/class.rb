@@ -4,6 +4,10 @@ module EventObject
       define_method met, &b
     end
 
+    def cdef(met, &b)
+      define_singleton_method met, &b
+    end
+
     def events(*ev)
       ev.each { |name| self.def(name) { var(name, Array) } }
       ev.each { |name| self.def("#{name}!") { |*a| var(name, Array).fire(*a) } }
@@ -11,7 +15,7 @@ module EventObject
 
     def var(name, init=nil)
     	key = "@#{name}"
-      class_variable_defined?(key) ? class_variable_get(key) : class_variable_set(key, init.new)
+      class_variable_defined?(key) ? class_variable_get(key) : class_variable_set(key, (init.is_a?(Class) ? init.new : init))
     end
   end
 end

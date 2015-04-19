@@ -1,11 +1,11 @@
 module EventObject
   refine Object do
     def def(method, &b)
-      define_singleton_method method, &b
+      define_method method, &b
     end
 
     def var(name, init=nil)
-      instance_variable_get("@#{name}") || instance_variable_set("@#{name}", init.new)
+      instance_variable_get("@#{name}") || instance_variable_set("@#{name}", (init.is_a?(Class) ? init.new : init))
     end
 
     def on(name, &b)
